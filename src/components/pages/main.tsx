@@ -1,5 +1,7 @@
 import PlaceCard from '../place-card/place-card';
 import {AppProps} from '../app';
+import { Link } from 'react-router-dom';
+import {AppRoute} from '../../constants';
 
 
 function Main({offersCount}: AppProps): JSX.Element {
@@ -25,11 +27,11 @@ function Main({offersCount}: AppProps): JSX.Element {
             <nav className="header__nav">
               <ul className="header__nav-list">
                 <li className="header__nav-item user">
-                  <a className="header__nav-link header__nav-link--profile" href="/">
+                  <Link to={AppRoute.Favorites} title={AppRoute.Favorites} className="header__nav-link header__nav-link--profile">
                     <div className="header__avatar-wrapper user__avatar-wrapper">
                     </div>
                     <span className="header__user-name user__name">Oliver.conner@gmail.com</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="header__nav-item">
                   <a className="header__nav-link" href="/">
