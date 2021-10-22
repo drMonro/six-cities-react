@@ -6,18 +6,21 @@ import PrivateRoute from './private-route';
 import {AppRoute, AuthorizationStat} from '../constants';
 import Favorites from './pages/favorites';
 import Offer from './pages/offer';
+import {ReviewType} from '../types/reviewType';
+import {OfferType} from '../types/offerType';
 
 export type AppProps = {
-  offersCount: number;
+  offers: OfferType[];
+  reviews: ReviewType[];
 }
 
-function App({offersCount}: AppProps): JSX.Element {
+function App({offers, reviews}: AppProps): JSX.Element {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path={AppRoute.Main} exact render={() => <Main offersCount={offersCount}/>}/>
+        <Route path={AppRoute.Main} exact render={() => <Main offers={offers}/>}/>
         <Route path={AppRoute.Offer} exact render={() => <Offer/>} />
-        <PrivateRoute path={AppRoute.Favorites} render={() => <Favorites/>} authorizationStat={AuthorizationStat.NoAuth} exact/>
+        <PrivateRoute path={AppRoute.Favorites} render={() => <Favorites offers={offers}/>} authorizationStat={AuthorizationStat.Auth} exact/>
         <Route path={AppRoute.Login} exact render={() => <Login/>}/>
         <Route render={() => <Page404/>}/>
       </Switch>
