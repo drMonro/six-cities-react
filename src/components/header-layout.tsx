@@ -6,7 +6,7 @@ type OffersListProps = {
   children: JSX.Element,
 }
 
-export function Layout({children}: OffersListProps): JSX.Element {
+export function HeaderLayout({children}: OffersListProps): JSX.Element {
   return (
     <div className="page page--gray page--main">
       <header className="header">

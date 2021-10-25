@@ -19,7 +19,7 @@ function App({offers, reviews}: AppProps): JSX.Element {
     <BrowserRouter>
       <Switch>
         <Route path={AppRoute.Main} exact render={() => <Main offers={offers}/>}/>
-        <Route path={AppRoute.Offer} exact render={() => <Offer/>} />
+        <Route path={AppRoute.Offer} exact render={() => <Offer offers={offers}/>} />
         <PrivateRoute path={AppRoute.Favorites} render={() => <Favorites offers={offers}/>} authorizationStat={AuthorizationStat.Auth} exact/>
         <Route path={AppRoute.Login} exact render={() => <Login/>}/>
         <Route render={() => <Page404/>}/>

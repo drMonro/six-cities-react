@@ -2,7 +2,7 @@
 // import {AppRoute} from '../../constants';
 import {OfferType} from '../../types/offerType';
 import OffersList from '../offers-list/offers-list';
-import {withLayout} from '../../hocks/with-layout';
+import {withHeader} from '../../hocks/with-header';
 
 type MainPageProps = {
   offers: OfferType[];
@@ -81,4 +81,4 @@ function Main({offers}: MainPageProps): JSX.Element {
   );
 }
 
-export default withLayout(Main);
+export default withHeader(Main);

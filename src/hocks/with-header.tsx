@@ -1,17 +1,12 @@
 import React, {ComponentType} from 'react';
-import {Layout} from '../components/layout';
+import { HeaderLayout } from '../components/header-layout';
 
-type HOCProps = {
-  renderPlayer: (src: string, id: number) => void
-};
-
-export function withLayout<T>(Component: ComponentType<T>): ComponentType<Omit<T, keyof HOCProps>> {
-  type ComponentProps = Omit<T, keyof HOCProps>;
-  function WithLayout(props: ComponentProps): JSX.Element {
+export function withHeader<T>(Component: ComponentType<T>): ComponentType<T> {
+  function WithLayout(props: T): JSX.Element {
     return (
-      <Layout>
+      <HeaderLayout>
         <Component {...props as T}/>
-      </Layout>
+      </HeaderLayout>
     );
   }
   return WithLayout;
